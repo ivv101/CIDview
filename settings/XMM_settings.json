@@ -1,0 +1,174 @@
+{
+    "hide_upload_button": false,
+    "hide_csv_etc_button": false,
+    "hide_settings_panel": false,
+    "webpage_name": "index.html",
+    "include_version": true,
+    "use_cols": {
+        "NAME": {
+            "label": "name"
+        },
+        "RA": {
+            "label": "ra"
+        },
+        "DEC": {
+            "label": "dec"
+        },
+        "Class": {},
+        "SC_EP_8_FLUX": {
+            "label": "F_b"
+        },
+        "SC_EP_5_FLUX": {
+            "label": "F_h2"
+        },
+        "SC_EP_4_FLUX": {
+            "label": "F_h"
+        },
+        "SC_EP_3_FLUX": {
+            "label": "F_m"
+        },
+        "SC_EP_2_FLUX": {
+            "label": "F_s"
+        },
+        "SC_FVAR": {
+            "label": "variability"
+        },
+        "SC_DET_ML": {
+            "label": "signif"
+        },
+        "G": {},
+        "BP": {},
+        "RP": {},
+        "J": {},
+        "H": {},
+        "K": {},
+        "W1": {},
+        "W2": {},
+        "W3": {}
+    },
+    "derived": {
+        "HR_ms": {},
+        "HR_hm": {},
+        "HR_h2h": {},
+        "F_x/F_o": {},
+        "G-J": {},
+        "G-W2": {},
+        "BP-H": {},
+        "BP-W3": {},
+        "RP-K": {},
+        "J-H": {},
+        "J-W1": {},
+        "W1-W2": {}
+    },
+    "log_features": [
+        "F_b",
+        "F_h",
+        "F_m",
+        "F_s",
+        "F_h2",
+        "variability",
+        "signif",
+        "F_x/F_o"
+    ],
+    "features_no_loglin": [
+        "G",
+        "BP",
+        "RP",
+        "J",
+        "H",
+        "K",
+        "W1",
+        "W2",
+        "W3",
+        "G-J",
+        "G-W2",
+        "BP-H",
+        "BP-W3",
+        "RP-K",
+        "J-H",
+        "J-W1",
+        "W1-W2"
+    ],
+    "hover_table_names": [
+        "name",
+        {
+            "ra": "RA"
+        },
+        {
+            "dec": "Decl."
+        },
+        "F_b",
+        "HR_h2h",
+        "G",
+        "J",
+        "W1"
+    ],
+    "ini_xy_text": [
+        "F_b",
+        "BP"
+    ],
+    "flipped_axis": [],
+    "class_column": "Class",
+    "classes_dict": [
+        "AGN",
+        "CV",
+        "HM-STAR",
+        "HMXB",
+        "LM-STAR",
+        "LMXB",
+        {
+            "ATNF": "NS"
+        },
+        {
+            "ATNF_BIN": "NS_BIN"
+        },
+        "YSO"
+    ],
+    "ini_visible_classes": [
+        "AGN",
+        "LM-STAR"
+    ],
+    "table_row1_labels": [
+        "name",
+        "ra",
+        "dec",
+        "Class"
+    ],
+    "table_row1_labels_active": [
+        "name",
+        "ra",
+        "dec",
+        "Class"
+    ],
+    "table_row2_labels": "rest",
+    "table_row2_labels_active": [
+        "F_b",
+        "HR_ms",
+        "HR_hm",
+        "HR_h2h",
+        "variability",
+        "signif",
+        "G",
+        "J",
+        "W1",
+        "F_x/F_o"
+    ],
+    "non_features": [
+        "name",
+        "ra",
+        "dec",
+        "Class"
+    ],
+    "features": "rest",
+    "title_text": "X-ray and multiwavelength properties of classified sources from 4XMM-DR11",
+    "cite_text": "",
+    "ackn_text": "",
+    "description_text": "",
+    "contact_text": "",
+    "help_text": "\n\n\nHR_ms = (F_m - F_s) / (F_m + F_s)\nHR_hm = (F_h - F_m) / (F_h + F_m)\nHR_h2h = (F_h2 - F_h) / (F_h2 + F_h)\nF_x/F_o = F_b / (1.65e-5 * 10**(-G / 2.5))\n\n",
+    "html_title": "XMM Training Dataset",
+    "get_ref_link_js": "\n\n function get_ref_link(ref) {\n\n return [ref, ref]\n\n}\n",
+    "format_js": " \n\n    function format(d) {\n            \n        var i = Number(d.DT_RowId.slice(2))\n        \n        var name = table_source.data['name'][i]\n        \n        var div_id = `\"aladin-lite-div` + name.replace(/[^A-Z0-9]+/ig, \"_\") + `\"`\n                \n        var out = '<div id=' + div_id + ' style=\"width:400px;height:400px;\"></div>'+\n            '<script type=\"text/javascript\">' +\n            'var aladin = A.aladin(\"#' + div_id.slice(1) + ', {survey: \"P/2MASS/color\", fov:0.05, cooFrame:\"ICRSd\", target: \"' + \n            table_source.data['ra'][i] + ', ' + table_source.data['dec'][i] + '\"});</script>' \n        \n        var esa_sky = 'https://sky.esa.int/?target=' + table_source.data['ra'][i] + '%20' + table_source.data['dec'][i] + \n            '&hips=DSS2+color&fov=0.05&cooframe=J2000d&sci=false&lang=en&hide_welcome=true&hide_banner_info=true'\n            \n        var out2 = '<iframe alt=\"\" border=\"0\" bordercolor=\"#000000\" frameborder=\"0\" height=\"\" hspace=\"0\" ' +\n            'scrolling=\"auto\" ' +\n            'src=\"' + esa_sky + '\" title=\"\" vspace=\"0\" width=\"400px\" ' +\n            'class=\"\" style=\"height: 400px;\">' +\n            'https://sky.esa.int?hide_welcome=true&amp;&amp;hide_banner_info=true.' +\n            '</iframe>'   \n                \n        return out + out2\n    }\n",
+    "derived_func_js": "\n\n    var color_features = ['G-J', 'G-W2', 'BP-H', 'BP-W3', 'RP-K', 'J-H', 'J-W1', 'W1-W2']\n\n    for (var f of color_features) {\n    \n        var s = f.split('-')\n        \n        df_custom[f] = df_custom[s[0]].map(function (v, i) { return v - df_custom[s[1]][i]; })\n    \n    }\n        \n    function hr(a, b) {\n    \n        let c = a + b\n        \n        if (c==0) return NaN    \n    \n        return (a - b) / c;\n    };\n    \n    df_custom['HR_ms'] = df_custom['F_m'].map(function (v, i) { return hr(v, df_custom['F_s'][i]); })\n    df_custom['HR_hm'] = df_custom['F_h'].map(function (v, i) { return hr(v, df_custom['F_m'][i]); })\n    df_custom['HR_h2h'] = df_custom['F_h2'].map(function (v, i) { return hr(v, df_custom['F_h'][i]); })\n    \n    df_custom['F_x/F_o'] = df_custom['F_b'].map(function (v, i) { \n        return Math.pow(10, Math.log10(v) + 5 - Math.log10(1.65) + df_custom['G'][i] / 2.5); })\n            \n    //df_custom[class_column] = df_custom[class_column].map(x => x.replace('ATNF', 'NS'))\n    //df_custom[class_column] = df_custom[class_column].map(x => x.replace('ATNF_BIN', 'NS_BIN'))\n    \n    //df_custom['P_inter'] = df_custom['P_inter'].map(x => 1.001 - x)\n    //df_custom['P_intra'] = df_custom['P_inter'].map(x => 1.001 - x)\n    \n    if ('rgeo' in all_dict)\n    \n        df_custom['M_G'] = df_custom['rgeo'].map(function (v, i) { \n            return df_custom['G'][i] - 5 * Math.log10(v/10); })\n        \n    //df_custom['P_intra'] = df_custom['P_inter'].map(x => 1.001 - x)\n    \n",
+    "derived_func_py": "\n\nimport numpy as np\n\ndef hr(a, b): \n    s = a + b        \n    s[s==0] = np.nan        \n    return (a - b) / s\n\ndef derived_func(df, q):\n\n    derived_labels = [q['derived'][k]['label'] for k in q['derived'].keys()]\n\n    if 'M_G' in derived_labels:\n        df['M_G'] = df['G'] - 2.5 * np.log10((df['rgeo']/10)**2)\n\n    fh, fm, fs, fh2 = df[['F_h', 'F_m', 'F_s', 'F_h2']].to_numpy().T\n    df['HR_ms'] = hr(fm, fs) \n    df['HR_hm'] = hr(fh, fm) \n    df['HR_h2h'] = hr(fh2, fh)\n\n    color_features = ['G-J', 'G-W2', 'BP-H', 'BP-W3', 'RP-K', 'J-H', 'J-W1', 'W1-W2']\n    for k in color_features:    \n        p1, p2 = k.split('-')    \n        df[k] = df[p1] - df[p2]\n\n    df['F_x/F_o'] = np.float_power(10, np.log10(df['F_b']) + 5 - np.log10(1.65) + df['G'] / 2.5) \n\n    #df['P_inter'] = 1.001 - df['P_inter']\n    #df['P_intra'] = 1.001 - df['P_intra']\n\n    return df\n    \n"
+}

@@ -1,0 +1,190 @@
+{
+  "ackn_text": "",
+  "cite_text": "ms, hm, h2h",
+  "class_column": "Class",
+  "classes_dict": [
+    "AGN",
+    "YSO",
+    "HM-STAR",
+    "LM-STAR",
+    "HMXB",
+    "CV",
+    "LMXB",
+    "ATNF",
+    "ATNF_BIN"
+  ],
+  "contact_text": "",
+  "derived": {
+      "HR_ms": {},
+      "HR_hm": {},
+      "HR_h2h": {},
+      "F_x/F_o": {},
+      "G-J": {},
+      "G-W2": {},
+      "BP-H": {},
+      "BP-W3": {},
+      "RP-K": {},
+      "J-H": {},
+      "J-W1": {},
+      "W1-W2": {}      
+  },
+  "derived_func_js": "",
+  "derived_func_py": "",
+  "description_text": "",
+  "features": "rest",
+  "features_no_loglin": [],
+  "flipped_axis": [],
+  "format_js": " \n\n            function format(d) {\n\n                return ''\n            }\n        ",
+  "get_ref_link_js": "\n\n            function get_ref_link(ref) {\n\n                return [ref, ref]\n\n            }\n        ",
+  "help_text": "",
+  "hide_csv_etc_button": false,
+  "hide_settings_panel": false,
+  "hide_upload_button": false,
+  "hover_table_names": [
+    "name",
+    "Class"
+  ],
+  "html_title": "",
+  "include_version": false,
+  "ini_visible_classes": [
+    "AGN",
+    "YSO",
+    "HM-STAR",
+    "LM-STAR",
+    "HMXB",
+    "CV",
+    "LMXB",
+    "ATNF",
+    "ATNF_BIN"
+  ],
+  "ini_xy_text": [
+    "F_b",
+    "F_m"
+  ],
+  "log_features": [
+    "F_b",
+    "F_h2",
+    "F_h",
+    "F_m",
+    "F_s",
+    "variability",
+    "signif"
+  ],
+  "non_features": [
+    "name",
+    "ra",
+    "dec",
+    "Class"
+  ],
+  "table_row1_labels": [],
+  "table_row1_labels_active": [
+    "name",
+    "ra",
+    "dec",
+    "Class",
+    "F_b",
+    "F_h2",
+    "F_h",
+    "F_m",
+    "F_s",
+    "variability",
+    "signif",
+    "G",
+    "BP",
+    "RP",
+    "J",
+    "H",
+    "K",
+    "W1",
+    "W2",
+    "W3"
+  ],
+  "table_row2_labels": [
+    "name",
+    "ra",
+    "dec",
+    "Class",
+    "F_b",
+    "F_h2",
+    "F_h",
+    "F_m",
+    "F_s",
+    "variability",
+    "signif",
+    "G",
+    "BP",
+    "RP",
+    "J",
+    "H",
+    "K",
+    "W1",
+    "W2",
+    "W3"
+  ],
+  "table_row2_labels_active": [
+    "name",
+    "ra",
+    "dec",
+    "Class",
+    "F_b",
+    "F_h2",
+    "F_h",
+    "F_m",
+    "F_s",
+    "variability",
+    "signif",
+    "G",
+    "BP",
+    "RP",
+    "J",
+    "H",
+    "K",
+    "W1",
+    "W2",
+    "W3"
+  ],
+  "title_text": "",
+  "use_cols": {
+    "NAME": {
+      "label": "name"
+    },
+    "RA": {
+      "label": "ra"
+    },
+    "DEC": {
+      "label": "dec"
+    },
+    "Class": {},
+    "SC_EP_8_FLUX": {
+      "label": "F_b"
+    },
+    "SC_EP_5_FLUX": {
+      "label": "F_h2"
+    },
+    "SC_EP_4_FLUX": {
+      "label": "F_h"
+    },
+    "SC_EP_3_FLUX": {
+      "label": "F_m"
+    },
+    "SC_EP_2_FLUX": {
+      "label": "F_s"
+    },
+    "SC_FVAR": {
+      "label": "variability"
+    },
+    "SC_DET_ML": {
+      "label": "signif"
+    },
+    "G": {},
+    "BP": {},
+    "RP": {},
+    "J": {},
+    "H": {},
+    "K": {},
+    "W1": {},
+    "W2": {},
+    "W3": {}
+  },
+  "webpage_name": "index.html"
+}

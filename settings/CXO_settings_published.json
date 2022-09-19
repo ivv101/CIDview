@@ -1,0 +1,238 @@
+{
+    "hide_upload_button": true,
+    "hide_csv_etc_button": false,
+    "hide_settings_panel": true,
+    "webpage_name": "index.html",
+    "include_version": true,
+    "use_cols": {
+        "name_cat": {
+            "label": "name"
+        },
+        "ra_cat": {
+            "label": "ra",
+            "format": "toFixed(8)"
+        },
+        "dec_cat": {
+            "label": "dec",
+            "format": "toFixed(8)"
+        },
+        "Class": {},
+        "ref": {},
+        "flux_aper90_ave_b": {
+            "label": "F_b",
+            "axis": "F_b (erg/s/cm^2)",
+            "format": "toExponential(3)"
+        },
+        "flux_aper90_ave_h": {
+            "label": "F_h",
+            "axis": "F_h (erg/s/cm^2)",
+            "format": "toExponential(3)"
+        },
+        "flux_aper90_ave_m": {
+            "label": "F_m",
+            "axis": "F_m (erg/s/cm^2)",
+            "format": "toExponential(3)"
+        },
+        "flux_aper90_ave_s": {
+            "label": "F_s",
+            "axis": "F_s (erg/s/cm^2)",
+            "format": "toExponential(3)"
+        },
+        "var_inter_prob_b": {
+            "label": "P_inter",
+            "axis": "1.001 - P_inter",
+            "format": "toFixed(3)"
+        },
+        "kp_intra_prob_b": {
+            "label": "P_intra",
+            "axis": "1.001 - P_intra",
+            "format": "toFixed(3)"
+        },
+        "significance": {
+            "label": "Signif.",
+            "axis": "Signif. (\u03c3)",
+            "format": "toFixed(3)"
+        },
+        "Gmag": {
+            "label": "G",
+            "axis": "G (mag)",
+            "format": "toFixed(3)"
+        },
+        "BPmag": {
+            "label": "BP",
+            "axis": "BP (mag)",
+            "format": "toFixed(3)"
+        },
+        "RPmag": {
+            "label": "RP",
+            "axis": "RP (mag)",
+            "format": "toFixed(3)"
+        },
+        "Jmag": {
+            "label": "J",
+            "axis": "J (mag)",
+            "format": "toFixed(3)"
+        },
+        "Hmag": {
+            "label": "H",
+            "axis": "H (mag)",
+            "format": "toFixed(3)"
+        },
+        "Kmag": {
+            "label": "K",
+            "axis": "K (mag)",
+            "format": "toFixed(3)"
+        },
+        "W1mag_comb": {
+            "label": "W1",
+            "axis": "W1 (mag)",
+            "format": "toFixed(3)"
+        },
+        "W2mag_comb": {
+            "label": "W2",
+            "axis": "W2 (mag)",
+            "format": "toFixed(3)"
+        },
+        "W3mag_allwise": {
+            "label": "W3",
+            "axis": "W3 (mag)",
+            "format": "toFixed(3)"
+        },
+        "rgeo": {
+            "format": "toFixed(3)"
+        }
+    },
+    "derived": {
+        "HR_ms": {},
+        "HR_hm": {},
+        "HR_h(ms)": {},
+        "F_x/F_o": {},
+        "G-J": {},
+        "G-W2": {},
+        "BP-H": {},
+        "BP-W3": {},
+        "RP-K": {},
+        "J-H": {},
+        "J-W1": {},
+        "W1-W2": {},
+        "M_G": {}
+    },
+    "log_features": [
+        "F_b",
+        "F_h",
+        "F_m",
+        "F_s",
+        "P_inter",
+        "P_intra",
+        "Signif.",
+        "F_x/F_o"
+    ],
+    "features_no_loglin": [
+        "G",
+        "BP",
+        "RP",
+        "J",
+        "H",
+        "K",
+        "W1",
+        "W2",
+        "W3",
+        "G-J",
+        "G-W2",
+        "BP-H",
+        "BP-W3",
+        "RP-K",
+        "J-H",
+        "J-W1",
+        "W1-W2"
+    ],
+    "hover_table_names": [
+        "name",
+        {
+            "ra": "RA"
+        },
+        {
+            "dec": "Decl."
+        },
+        "F_b",
+        "HR_h(ms)",
+        "G",
+        "J",
+        "W1",
+        "ref"
+    ],
+    "ini_xy_text": [
+        "F_b",
+        "BP"
+    ],
+    "flipped_axis": [
+        "M_G"
+    ],
+    "class_column": "Class",
+    "classes_dict": [
+        "AGN",
+        "CV",
+        "HM-STAR",
+        "HMXB",
+        "LM-STAR",
+        "LMXB",
+        {
+            "ATNF": "NS"
+        },
+        {
+            "ATNF_BIN": "NS_BIN"
+        },
+        "YSO"
+    ],
+    "ini_visible_classes": [
+        "AGN",
+        "LM-STAR"
+    ],
+    "table_row1_labels": [
+        "name",
+        "ra",
+        "dec",
+        "Class",
+        "ref"
+    ],
+    "table_row1_labels_active": [
+        "name",
+        "ra",
+        "dec",
+        "Class",
+        "ref"
+    ],
+    "table_row2_labels": "rest",
+    "table_row2_labels_active": [
+        "F_b",
+        "HR_ms",
+        "HR_hm",
+        "HR_h(ms)",
+        "P_inter",
+        "P_intra",
+        "Signif.",
+        "G",
+        "J",
+        "W1",
+        "F_x/F_o"
+    ],
+    "non_features": [
+        "name",
+        "ra",
+        "dec",
+        "Class",
+        "ref"
+    ],
+    "features": "rest",
+    "title_text": "X-ray and multiwavelength properties of classified sources from CSC v.2",
+    "cite_text": "Please cite <a href=\"https://iopscience.iop.org/article/10.3847/2515-5172/abfcd4\"> Yang et al. (2021)</a> if you made use of this tool.",
+    "ackn_text": "This work was supported by NASA Chandra Awards AR3-14017X, AR9-20005A, and AR0-21007X and by NASA ADAP award 80NSSC19K0576.",
+    "description_text": "<a href=\"./RNAAS_note_about_TD.pdf\" target=\"_blank\">description</a>",
+    "contact_text": "<a href = \"mailto: huiyang@gwu.edu\" target=\"_blank\">Contact</a>",
+    "help_text": "\n\n<a href=\"./custom.csv\">Example</a>\n\nFor plotting custom objects, the user should provide a csv file.\nThe following column labels are accepted (columns with other names are ignored):\n\n    name \n    ra \n    dec \n    Class \n    ref \n\n    F_b \n    F_h \n    F_m \n    F_s \n\n    P_inter \n    P_intra \n\n    significance | Signif.\n\n    G \n    BP \n    RP \n    J \n    H \n    K \n    W1 \n    W2 \n    W3 \n \nAll columns are optional. \n\nThe following features are calculated from the user-supplied data:\n\n    HR_ms\n    HR_hm \n    HR_h(ms)\n    F_x/F_o\n    G-J \n    G-W2 \n    BP-H \n    BP-W3 \n    RP-K \n    J-H \n    J-W1 \n    W1-W2\n\nHR_ms = (F_m - F_s) / (F_m + F_s)\nHR_hm = (F_h - F_m) / (F_h + F_m)\nHR_h(ms) = (F_h - F_m - F_s) / (F_h + F_m + F_s)\nF_x/F_o = F_b / (1.65e-5 * 10**(-G / 2.5))\n\nClass labels:\n\n    AGN \n    CV \n    HM-STAR \n    HMXB \n    LM-STAR \n    LMXB \n    NS \n    NS_BIN \n    YSO\n\nUnclassified objects or objects with different class labels are shown as white circles.\n\n<a href=\"./custom.csv\">Example</a>\n\n",
+    "html_title": "CXO Training Dataset",
+    "get_ref_link_js": "\n\n    function get_ref_link(ref) {\n    \n        var ref_link\n\n        if (ref=='INTEGRAL General Reference Catalog') {\n            ref_link = 'https://www.isdc.unige.ch/integral/science/catalogue'\n            ref = 'INTEGRAL'\n        }    \n        else if (ref=='Simbad')\n            ref_link = 'http://simbad.u-strasbg.fr/simbad/'\n        else\n            ref_link = 'https://ui.adsabs.harvard.edu/abs/' + ref + '/abstract' \n\n        ref_link = '<a href=\"' + ref_link + '\" target=\"_blank\">' + ref + '</a>'    \n\n        return [ref, ref_link]\n    \n    }\n",
+    "format_js": " \n\n    function format(d) {\n            \n        var i = Number(d.DT_RowId.slice(2))\n        \n        var name = table_source.data['name'][i]\n        \n        var div_id = `\"aladin-lite-div` + name.replace(/[^A-Z0-9]+/ig, \"_\") + `\"`\n                \n        var out = '<div id=' + div_id + ' style=\"width:400px;height:400px;\"></div>'+\n            '<script type=\"text/javascript\">' +\n            'var aladin = A.aladin(\"#' + div_id.slice(1) + ', {survey: \"P/2MASS/color\", fov:0.05, cooFrame:\"ICRSd\", target: \"' + \n            table_source.data['ra'][i] + ', ' + table_source.data['dec'][i] + '\"});</script>' \n        \n        var esa_sky = 'https://sky.esa.int/?target=' + table_source.data['ra'][i] + '%20' + table_source.data['dec'][i] + \n            '&hips=DSS2+color&fov=0.05&cooframe=J2000d&sci=false&lang=en&hide_welcome=true&hide_banner_info=true'\n            \n        var out2 = '<iframe alt=\"\" border=\"0\" bordercolor=\"#000000\" frameborder=\"0\" height=\"\" hspace=\"0\" ' +\n            'scrolling=\"auto\" ' +\n            'src=\"' + esa_sky + '\" title=\"\" vspace=\"0\" width=\"400px\" ' +\n            'class=\"\" style=\"height: 400px;\">' +\n            'https://sky.esa.int?hide_welcome=true&amp;&amp;hide_banner_info=true.' +\n            '</iframe>'   \n                \n        return out + out2\n    }\n",
+    "derived_func_js": "\n\n    var color_features = ['G-J', 'G-W2', 'BP-H', 'BP-W3', 'RP-K', 'J-H', 'J-W1', 'W1-W2']\n\n    for (var f of color_features) {\n    \n        var s = f.split('-')\n        \n        //console.log('s: ', s)\n        \n        //console.log('df_custom: ', df_custom)\n        \n        //console.log('df_custom[s[0]]: ', df_custom[s[0]])\n        \n        df_custom[f] = df_custom[s[0]].map(function (v, i) { return v - df_custom[s[1]][i]; })\n    \n    }\n        \n    function hr(a, b) {\n    \n        let c = a + b\n        \n        if (c==0) return NaN    \n    \n        return (a - b) / c;\n    };\n    \n    df_custom['HR_ms'] = df_custom['F_m'].map(function (v, i) { return hr(v, df_custom['F_s'][i]); })\n    df_custom['HR_hm'] = df_custom['F_h'].map(function (v, i) { return hr(v, df_custom['F_m'][i]); })\n    df_custom['HR_h(ms)'] = df_custom['F_h'].map(function (v, i) { return hr(v, df_custom['F_m'][i] + df_custom['F_s'][i]); })\n    \n    df_custom['F_x/F_o'] = df_custom['F_b'].map(function (v, i) { \n        return Math.pow(10, Math.log10(v) + 5 - Math.log10(1.65) + df_custom['G'][i] / 2.5); })\n            \n    //df_custom[class_column] = df_custom[class_column].map(x => x.replace('ATNF', 'NS'))\n    //df_custom[class_column] = df_custom[class_column].map(x => x.replace('ATNF_BIN', 'NS_BIN'))\n    \n    df_custom['P_inter'] = df_custom['P_inter'].map(x => 1.001 - x)\n    df_custom['P_intra'] = df_custom['P_inter'].map(x => 1.001 - x)\n    \n    if ('rgeo' in df_custom) \n    \n        df_custom['M_G'] = df_custom['rgeo'].map(function (v, i) { \n            return df_custom['G'][i] - 5 * Math.log10(v/10); })\n        \n    df_custom['P_intra'] = df_custom['P_inter'].map(x => 1.001 - x)\n    \n",
+    "derived_func_py": "\n\nimport numpy as np\n\ndef hr(a, b): \n    s = a + b        \n    s[s==0] = np.nan        \n    return (a - b) / s\n\ndef derived_func(df, q):\n\n    derived_labels = [q['derived'][k]['label'] for k in q['derived'].keys()]\n\n    if 'M_G' in derived_labels:\n        df['M_G'] = df['G'] - 2.5 * np.log10((df['rgeo']/10)**2)\n\n    fh, fm, fs = df[['F_h', 'F_m', 'F_s']].to_numpy().T\n    df['HR_ms'] = hr(fm, fs) \n    df['HR_hm'] = hr(fh, fm) \n    df['HR_h(ms)'] = hr(fh, fm + fs)\n\n    color_features = ['G-J', 'G-W2', 'BP-H', 'BP-W3', 'RP-K', 'J-H', 'J-W1', 'W1-W2']\n    for k in color_features:    \n        p1, p2 = k.split('-')    \n        df[k] = df[p1] - df[p2]\n\n    df['F_x/F_o'] = np.float_power(10, np.log10(df['F_b']) + 5 - np.log10(1.65) + df['G'] / 2.5) \n\n    df['P_inter'] = 1.001 - df['P_inter']\n    df['P_intra'] = 1.001 - df['P_intra']\n\n    return df\n    \n"
+}
