@@ -19,6 +19,9 @@ var s3 = new AWS.S3({
 
 function my_upload(folder) {
     
+    if ((BucketName == '') || (bucketRegion == '') || (IdentityPoolId = ''))        
+        return alert("Please set correct BucketName, bucketRegion, and IdentityPoolId in html/upload.js")
+    
     var files = document.getElementById("upload").files
 
     //   var files = window.my_file
