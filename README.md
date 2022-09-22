@@ -1,8 +1,8 @@
-![](screenshot.png)
+![](docs/screenshot.png)
 
 <details><summary>Settings panel screenshot</summary>
     
-![](settings_screenshot.png)    
+![](docs/settings_screenshot.png)    
 
 </details>
 
