@@ -1,4 +1,0 @@
-sphinx
-sphinx_copybutton
-jupytext
-myst_parser

@@ -16,9 +16,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Jupytext"
-copyright = "2018-2020, The Jupytext Team"
-author = "The Jupytext Team"
+project = 'CIDview'
+copyright = '2022, Igor Volkov'
+author = 'Igor Volkov'
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,8 +32,8 @@ myst_heading_anchors = 3
 
 html_context = {
     "display_github": True,  # Integrate GitHub
-    "github_user": "mwouts",  # Username
-    "github_repo": "jupytext",  # Repo name
+    "github_user": "ivv101",  # Username
+    "github_repo": "CIDview",  # Repo name
     "github_version": "main",  # Version
     "conf_py_path": "/docs/",  # Path in the checkout to the docs root
 }
@@ -56,14 +56,14 @@ html_sidebars = {"**": ["about.html", "navigation.html", "searchbox.html"]}
 
 html_theme_options = {
     "github_button": True,
-    "github_user": "mwouts",
-    "github_repo": "jupytext",
+    "github_user": "ivv101",
+    "github_repo": "CIDview",
     "github_type": "star",
     "logo": "logo.svg",
 }
 
 pygments_style = "sphinx"
-master_doc = "index"  # Makes `index.md` the main file
+master_doc = "README"  # Makes `index.md` the main file
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -71,4 +71,4 @@ master_doc = "index"  # Makes `index.md` the main file
 html_static_path = ["_static"]
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "jupytext"
+htmlhelp_basename = "CIDview"
