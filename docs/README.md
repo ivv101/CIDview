@@ -62,7 +62,8 @@ The code will generate `index.html` in `html` folder.
 python code/CIDview.py <csv_file> [settings_file.json]
 ```
 
-The `Settings` panel (top left corner) allows the user to customize most of the GUI. The settings can be saved and then used to recreate the html file. 
+The `Settings` panel (top left corner) allows the user to customize most of the GUI. 
+The settings can be saved and then used to recreate the html file. 
 
 
 
