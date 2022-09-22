@@ -59,7 +59,7 @@ html_theme_options = {
     "github_user": "ivv101",
     "github_repo": "CIDview",
     "github_type": "star",
-    "logo": "logo.svg",
+    "logo": "logo2.png",
 }
 
 pygments_style = "sphinx"
