@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.0
+#       jupytext_version: 1.14.4
 #   kernelspec:
 #     display_name: Python [conda env:p39] *
 #     language: python
@@ -47,7 +47,7 @@ from bokeh.models import ColumnDataSource, CustomJS, Slider, Legend, \
         Button, CheckboxButtonGroup, RadioButtonGroup, RadioGroup, CheckboxGroup, Label, Spacer, Title, Div, \
         PanTool, WheelZoomTool, SaveTool, ResetTool, HoverTool, TapTool, \
         BasicTicker, Scatter, CustomJSHover, FileInput, Toggle, TableColumn, DataTable, TextAreaInput, \
-        Panel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar, TextInput, PreText
+        TabPanel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar, TextInput, PreText
 from bokeh.plotting import figure, output_file, show, save
 from bokeh.resources import CDN
 from bokeh.themes import Theme
@@ -85,7 +85,7 @@ def get_title(feat):
     else:
         text = f'{feat}:'
 
-    return bk.PreText(text=text, style={'color': head_color, 'font-size': title_font_size})
+    return bk.PreText(text=text, styles={'color': head_color, 'font-size': title_font_size})
 
 
 # %%
@@ -123,7 +123,7 @@ def w_checkbox(feat, q, q_modified_source):
                                 }, 
                            code=callback_js) 
     
-    checkbox.js_on_click(callback)
+    checkbox.js_on_change('active', callback)
         
     return checkbox
 
@@ -165,7 +165,7 @@ def w_misc(feat, q, q_modified_source):
                                 }, 
                            code=callback_js) 
     
-    checkbox_button_group.js_on_click(callback)
+    checkbox_button_group.js_on_change('active', callback)
     
     return bk.column(title, 
                      checkbox_button_group)        
@@ -265,7 +265,7 @@ def w_all(q, q_modified_source, q_original_source, w_misc_rows, radio_rows, df_s
     
     title = get_title(feat)
     
-    warn = bk.PreText(text='', style={'color': 'red', 'font-size': title_font_size})
+    warn = bk.PreText(text='', styles={'color': 'red', 'font-size': title_font_size})
 
     active = idx_func(use_keys, feat_keys)
 
@@ -530,7 +530,7 @@ def w_all(q, q_modified_source, q_original_source, w_misc_rows, radio_rows, df_s
                                         'warn': warn}, 
                                    code=callback_buttons_js)   
 
-    buttons.js_on_click(callback_buttons)
+    buttons.js_on_change('active', callback_buttons)
     
     json_q = bk.PreText(text='', name='json_q', visible=json_visible, width=300)
     
@@ -546,7 +546,7 @@ def w_derived(q, q_modified_source):
     
     if q[feat] == {}:
         
-        return bk.PreText(text=f'{feat}: None', style={'color': head_color, 'font-size': title_font_size})
+        return bk.PreText(text=f'{feat}: None', styles={'color': head_color, 'font-size': title_font_size})
         
     use_keys = [k for k in q[feat].keys() if q[feat][k]['use']]
 
@@ -650,7 +650,7 @@ def w_derived(q, q_modified_source):
         'feat': feat,
         'aux_but': aux_but}, code=callback_buttons_js)   
 
-    buttons.js_on_click(callback_buttons)
+    buttons.js_on_change('active', callback_buttons)
     
     return bk.column(title, buttons, *list(bk_rows.values())) 
 
@@ -726,7 +726,9 @@ def w_class(q, q_modified_source, df, q_original_source):
     callback_checkbox_button_group = bk.CustomJS(args={'q_modified_source': q_modified_source,                                
                                 }, 
                            code=callback_checkbox_button_group_js)     
-    checkbox_button_group.js_on_click(callback_checkbox_button_group)
+    
+    checkbox_button_group.js_on_change('active', callback_checkbox_button_group)
+    
     
 #################################################################################################       
                
@@ -799,7 +801,7 @@ def w_class(q, q_modified_source, df, q_original_source):
                                                    }, 
                            code=callback_radio_button_group_js) 
     
-    radio_button_group.js_on_click(callback_radio_button_group)
+    radio_button_group.js_on_change('active', callback_radio_button_group)
     
     radio_button_group.js_on_change('labels', callback_radio_button_group)
         
@@ -877,7 +879,7 @@ def w_hover_table_names(q, q_modified_source):
                                                       }, 
                                                  code=callback_checkbox_button_group_js)
     
-    checkbox_button_group.js_on_click(callback_checkbox_button_group)
+    checkbox_button_group.js_on_change('active', callback_checkbox_button_group)
     
 
         
@@ -916,7 +918,7 @@ def w_ini_xy_text(q, q_mod):
                                 }, 
                            code=callback_radio_button_group_x_js) 
     
-    radio_button_group_x.js_on_click(callback_radio_button_group_x)
+    radio_button_group_x.js_on_change('active', callback_radio_button_group_x)
 
     title_y = get_title('y')     
     
@@ -947,7 +949,7 @@ def w_ini_xy_text(q, q_mod):
                                 }, 
                            code=callback_radio_button_group_y_js) 
     
-    radio_button_group_y.js_on_click(callback_radio_button_group_y)
+    radio_button_group_y.js_on_change('active', callback_radio_button_group_y)
     
     return bk.column(title_x, 
                      radio_button_group_x,

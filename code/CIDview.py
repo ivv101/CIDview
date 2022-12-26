@@ -7,11 +7,11 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.14.0
+#       jupytext_version: 1.14.4
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: Python [conda env:CIDview]
 #     language: python
-#     name: python3
+#     name: conda-env-CIDview-py
 # ---
 
 current_version = '5b6'
@@ -52,7 +52,7 @@ from bokeh.models import ColumnDataSource, CustomJS, Slider, Legend, \
         Button, CheckboxButtonGroup, RadioButtonGroup, RadioGroup, CheckboxGroup, Label, Spacer, Title, Div, \
         PanTool, WheelZoomTool, SaveTool, ResetTool, HoverTool, TapTool, \
         BasicTicker, Scatter, CustomJSHover, FileInput, Toggle, TableColumn, DataTable, TextAreaInput, \
-        Panel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar, TextInput, PreText
+        TabPanel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar, TextInput, PreText
 from bokeh.plotting import figure, output_file, show, save
 from bokeh.resources import CDN
 from bokeh.themes import Theme
@@ -107,7 +107,7 @@ if is_interactive():
         'GClass': ['gll_pcs_v28.csv', 'gll_pcs_v28_settings.json']
     }
 
-    catalog = 'CXO_published'
+    catalog = 'GClass'
     
     input_file_name, q_file_name = inputes[catalog]
     
@@ -253,10 +253,13 @@ layout, p = mdl.main_func(df, q_original,
 
 # layout, df_list = mdl.main_func(df, q_original) # for everything else
 
-# bk.show(layout)
+bk.show(layout)
 
 # +
-tab_layout = bk.Panel(child=layout, title='Main')
+# test = bk.json_item(layout) 
+
+# +
+tab_layout = bk.TabPanel(child=layout, title='Main')
 
 if q_original['hide_settings_panel']:
     
@@ -264,8 +267,11 @@ if q_original['hide_settings_panel']:
     
 else:    
 
-    tab_settings = bk.Panel(child=settings_layout, title='Settings')
+    tab_settings = bk.TabPanel(child=settings_layout, title='Settings')
     my_layout = bk.Tabs(tabs=[tab_layout, tab_settings])
+    
+    
+# test = bk.json_item(my_layout) 
 
 html = bk.file_html(my_layout, bk.CDN, q_original['html_title'], template=mdl.template)
 with open(html_dir + q['webpage_name'], 'wt') as _:

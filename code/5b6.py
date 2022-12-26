@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.14.0
+#       jupytext_version: 1.14.4
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -130,7 +130,7 @@ from bokeh.models import ColumnDataSource, CustomJS, Slider, Legend, \
         Button, CheckboxButtonGroup, RadioButtonGroup, RadioGroup, CheckboxGroup, Label, Spacer, Title, Div, \
         PanTool, WheelZoomTool, SaveTool, ResetTool, HoverTool, TapTool, \
         BasicTicker, Scatter, CustomJSHover, FileInput, Toggle, TableColumn, DataTable, TextAreaInput, \
-        Panel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar
+        TabPanel, Tabs, DateFormatter, LogColorMapper, LinearColorMapper, ColorBar
 from bokeh.plotting import figure, output_file, show, save
 from bokeh.resources import CDN
 from bokeh.themes import Theme
@@ -586,8 +586,8 @@ def main_func(df, q,
     else: 
         df['y'] = df[feat_y].copy()
     
-    p = bk.figure(plot_height=800, 
-                  plot_width=1200,              
+    p = bk.figure(height=800, 
+                  width=1200,              
                   tools=['pan', 'wheel_zoom', 'save', 'reset', 'tap', 'lasso_select'],
                   active_drag='lasso_select',
                   x_axis_location='below',            
@@ -1112,8 +1112,8 @@ def main_func(df, q,
 
     ''')
 
-    log_x.js_on_click(callback_log_xy)
-    log_y.js_on_click(callback_log_xy)
+    log_x.js_on_change('active', callback_log_xy)
+    log_y.js_on_change('active', callback_log_xy)
 
     dark_mode = bk.CheckboxGroup(labels=['dark mode'], active=[])
     callback_dark = bk.CustomJS(args=dict(p=p), 
@@ -1126,7 +1126,7 @@ def main_func(df, q,
 
     ''')
 
-    dark_mode.js_on_click(callback_dark)
+    dark_mode.js_on_change('active', callback_dark)
 
     slider = bk.Slider(start=0, end=1, step=0.01, value=alpha, title='opacity', width=100)
     
@@ -1308,7 +1308,7 @@ def main_func(df, q,
                                                      }, 
                                                 code=tap_code)
 
-    p.select(bk.TapTool).names = classes + ['custom']
+    # p.select(bk.TapTool).names = classes + ['custom']
 
     hover_formatter_js = bk.CustomJSHover(args={'p': p,
                                                 'table_html': table_html}, 
@@ -1349,18 +1349,18 @@ def main_func(df, q,
     ''')
 
     hvt = bk.HoverTool(tooltips='@x{custom}', 
-                       names=classes + ['custom'], 
+                       # names=classes + ['custom'], 
                        formatters={'@x': hover_formatter_js}, 
                        callback=hover_callback_js
                       )
 
     p.add_tools(hvt)
 
-    title = bk.Div(text=f"<b>{q['title_text']}</b>", style={'font-size': '200%', 'color': 'black'}, width=1000)
+    title = bk.Div(text=f"<b>{q['title_text']}</b>", styles={'font-size': '200%', 'color': 'black'}, width=1000)
 
     cite = bk.Div(text=q['cite_text'], width=1000, margin=(5, 5, 0, 5))
 
-    description = bk.Div(text=q['description_text'], style={'font-size': '150%'}, width=1000)
+    description = bk.Div(text=q['description_text'], styles={'font-size': '150%'}, width=1000)
 
     ackn = bk.Div(text=q['ackn_text'], width=1000)
 
@@ -1530,7 +1530,7 @@ def main_func(df, q,
 
     ''')
 
-    show_file.js_on_click(callback_show_file)
+    show_file.js_on_change('active', callback_show_file)
 
     file_input = bk.FileInput(accept='.csv')
 
@@ -2225,42 +2225,42 @@ def main_func(df, q,
     layout = bk.layout([
         [bk.Spacer(height=50)],
         [bk.Spacer(width=250), title],
-        [bk.Spacer(width=250), cite],
-        # [bk.column(sel_y, css_classes=['scrollable'], height=300, width=100), 
-        [bk.column(bk.Spacer(height=y_buttons_margin), sel_y), 
-         p, 
-         bk.column(
-             bk.Spacer(height=100), 
-             description, 
-             dark_mode, 
-             slider,
-             log_x,
-             log_y,
-             bk.Spacer(height=50), 
-    #          divTemplate, 
-             help_button, 
-             file_input,  
-             upload_button,
-             help_div,  
-             upload_div,      
-             show_file,
-             bk.Spacer(height=35),        
-             table_div)],
-        [bk.Spacer(width=80), sel_x],
-        [bk.Spacer(height=30)],
-        [ackn, hits],
-        [version],
-        [contact],
-    #     [bk.Spacer(width=75), table_button, dl_table_div],
-        [bk.Spacer(width=75), table_button],
-        [bk.Spacer(width=75), table_mode, filtrex_input, bk.column(filtrex_button, filtrex_help), filtrex_help_div],
-        [bk.Spacer(height=40)],
-        [bk.Spacer(width=80), sel_table_columns_1, bk.Spacer(width=480), all_button, none_button, default_button],
-        [bk.Spacer(height=40)],
-        [bk.Spacer(width=80), sel_table_columns_2],
-        [bk.Spacer(height=30)],
-        [bk.Spacer(width=80), bottom_table_div],
+        [bk.Spacer(width=250), cite], [sel_x]
+       # [bk.column(sel_y, css_classes=['scrollable'], height=300, width=100), 
+    #    [bk.column(bk.Spacer(height=y_buttons_margin), sel_y)], 
+    #      p, 
+    #      bk.column(
+    #          bk.Spacer(height=100), 
+    #          description, 
+    #          dark_mode, 
+    #          slider,
+    #          log_x,
+    #          log_y,
+    #          bk.Spacer(height=50), 
+    # #          divTemplate, 
+    #          help_button, 
+    #          file_input,  
+    #          upload_button,
+    #          help_div,  
+    #          upload_div,      
+    #          show_file,
+    #          bk.Spacer(height=35),        
+    #          table_div)],
+    #     [bk.Spacer(width=80), sel_x],
     #     [bk.Spacer(height=30)],
+    #     [ackn, hits],
+    #     [version],
+    #     [contact],
+    # #     [bk.Spacer(width=75), table_button, dl_table_div],
+    #     [bk.Spacer(width=75), table_button],
+    #     [bk.Spacer(width=75), table_mode, filtrex_input, bk.column(filtrex_button, filtrex_help), filtrex_help_div],
+    #     [bk.Spacer(height=40)],
+    #     [bk.Spacer(width=80), sel_table_columns_1, bk.Spacer(width=480), all_button, none_button, default_button],
+    #     [bk.Spacer(height=40)],
+    #     [bk.Spacer(width=80), sel_table_columns_2],
+    #     [bk.Spacer(height=30)],
+    #     [bk.Spacer(width=80), bottom_table_div],
+    # #     [bk.Spacer(height=30)],
 
 
     ])
